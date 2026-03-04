@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>E’Shae Productions | E’Shae Speaks</title>
+  <meta name="description" content="E’Shae Productions / E’Shae Speaks — luxury hosting, media, brand management, security, and event experiences." />
+
+  <!-- OPTIONAL: Replace with your favicon once uploaded -->
+  <link rel="icon" href="assets/favicon.png" />
+
+  <style>
+    :root{
+      --bg:#07060a;
+      --panel:#0e0b14;
+      --panel2:#120e1c;
+      --gold:#d8b56a;
+      --gold2:#f0d08a;
+      --rose:#ff78c9;
+      --lav:#b78cff;
+      --text:#f4f1ff;
+      --muted:rgba(244,241,255,.72);
+      --line:rgba(216,181,106,.22);
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+      --radius:22px;
+      --radius2:28px;
+      --max:1180px;
+      --serif: ui-serif, "Georgia", "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1200px 700px at 20% -10%, rgba(255,120,201,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(183,140,255,.15), transparent 55%),
+        radial-gradient(800px 700px at 70% 110%, rgba(216,181,106,.12), transparent 55%),
+        linear-gradient(180deg, #05040a 0%, #07060a 45%, #04030a 100%);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,6,10,.88), rgba(7,6,10,.58));
+      border-bottom:1px solid rgba(216,181,106,.18);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:240px;
+    }
+    .brand-mark{
+      width:42px; height:42px; border-radius:14px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,120,201,.55), rgba(216,181,106,.18) 55%, rgba(0,0,0,.15) 100%);
+      border:1px solid rgba(216,181,106,.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+    }
+    .brand-mark img{width:100%; height:100%; object-fit:cover}
+    .brand-title{
+      line-height:1.05;
+    }
+    .brand-title .big{
+      font-family:var(--serif);
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:700;
+      font-size:14px;
+      color:rgba(240,208,138,.98);
+    }
+    .brand-title .sub{
+      font-family:var(--serif);
+      font-size:13px;
+      color:rgba(255,120,201,.88);
+      letter-spacing:.08em;
+      margin-top:3px;
+    }
+
+    .nav{
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+    .nav a{
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(244,241,255,.78);
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(216,181,106,.18);
+      background: rgba(14,11,20,.35);
+      transition:transform .15s ease, border-color .15s ease, background .15s ease;
+      white-space:nowrap;
+    }
+    .nav a:hover{
+      transform:translateY(-1px);
+      border-color:rgba(216,181,106,.40);
+      background: rgba(18,14,28,.55);
+    }
+
+    .hero{
+      padding:26px 0 14px;
+    }
+    .hero-card{
+      border-radius:var(--radius2);
+      overflow:hidden;
+      border:1px solid rgba(216,181,106,.22);
+      box-shadow: var(--shadow);
+      position:relative;
+      background: rgba(14,11,20,.55);
+    }
+    .hero-bg{
+      position:relative;
+      min-height: 420px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:flex-start;
+      padding:28px;
+      background-size:cover;
+      background-position:center;
+    }
+    .hero-bg::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1000px 520px at 20% 0%, rgba(255,120,201,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(216,181,106,.20), transparent 60%),
+        linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.62) 70%, rgba(0,0,0,.82) 100%);
+    }
+    .hero-content{
+      position:relative;
+      max-width:720px;
+      padding:18px 18px 20px;
+      border-radius:22px;
+      background: rgba(7,6,10,.40);
+      border:1px solid rgba(216,181,106,.18);
+      backdrop-filter: blur(10px);
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(240,208,138,.95);
+      margin:0 0 10px;
+    }
+    .hero-title{
+      font-family:var(--serif);
+      font-size:44px;
+      line-height:1.02;
+      margin:0;
+      letter-spacing:.04em;
+    }
+    .hero-title span{
+      color:rgba(255,120,201,.94);
+      font-style:italic;
+      letter-spacing:.02em;
+    }
+    .tagline{
+      margin:12px 0 0;
+      color:rgba(244,241,255,.82);
+      font-size:15px;
+      line-height:1.55;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+      align-items:center;
+    }
+    .btn{
+      border:none;
+      cursor:pointer;
+      border-radius:999px;
+      padding:12px 14px;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      user-select:none;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn-primary{
+      background: linear-gradient(90deg, rgba(216,181,106,.98), rgba(240,208,138,.92));
+      color:#140f1f;
+      box-shadow: 0 12px 30px rgba(216,181,106,.18);
+    }
+    .btn-primary:hover{ transform:translateY(-1px); filter:brightness(1.03); }
+    .btn-ghost{
+      background: rgba(14,11,20,.55);
+      border:1px solid rgba(216,181,106,.28);
+      color:rgba(244,241,255,.92);
+    }
+    .btn-ghost:hover{ transform:translateY(-1px); border-color:rgba(216,181,106,.45); }
+    .mini-icons{
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+      margin-left:auto;
+    }
+    .icon-btn{
+      width:44px; height:44px;
+      border-radius:16px;
+      border:1px solid rgba(216,181,106,.25);
+      background: rgba(18,14,28,.55);
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      transition:transform .15s ease, border-color .15s ease;
+    }
+    .icon-btn:hover{ transform:translateY(-1px); border-color:rgba(216,181,106,.45); }
+    .icon-btn img{ width:100%; height:100%; object-fit:cover; }
+
+    .quote{
+      margin-top:14px;
+      padding:14px 18px;
+      border:1px solid rgba(216,181,106,.18);
+      background: rgba(14,11,20,.40);
+      border-radius:18px;
+      color:rgba(244,241,255,.88);
+      font-family:var(--serif);
+      font-style:italic;
+      letter-spacing:.03em;
+      box-shadow: 0 14px 40px rgba(0,0,0,.32);
+    }
+
+    .section{ padding:22px 0; }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+      .hero-title{ font-size:38px; }
+      .mini-icons{ margin-left:0; }
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid rgba(216,181,106,.20);
+      background: linear-gradient(180deg, rgba(14,11,20,.62), rgba(10,8,16,.52));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-pad{ padding:18px; }
+    .h2{
+      font-family:var(--serif);
+      font-size:26px;
+      margin:0 0 10px;
+      letter-spacing:.04em;
+    }
+    .h3{
+      font-family:var(--serif);
+      font-size:18px;
+      margin:0 0 8px;
+      letter-spacing:.04em;
+      color:rgba(240,208,138,.95);
+    }
+    .p{
+      margin:0 0 10px;
+      color:rgba(244,241,255,.78);
+      line-height:1.62;
+      font-size:14px;
+    }
+    .fine{
+      color:rgba(244,241,255,.62);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(216,181,106,.25);
+      background: rgba(18,14,28,.45);
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(244,241,255,.82);
+      margin:6px 6px 0 0;
+    }
+    .divider{
+      height:1px;
+      background: rgba(216,181,106,.18);
+      margin:14px 0;
+    }
+
+    .banner{
+      border-top:1px solid rgba(216,181,106,.18);
+      border-bottom:1px solid rgba(216,181,106,.18);
+      background: rgba(10,8,16,.42);
+      padding:14px;
+    }
+    .banner img{
+      width:100%;
+      border-radius:18px;
+      border:1px solid rgba(216,181,106,.22);
+      box-shadow: 0 16px 40px rgba(0,0,0,.40);
+      object-fit:cover;
+      max-height: 380px;
+    }
+
+    .mag-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 980px){
+      .mag-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px){
+      .mag-grid{ grid-template-columns: 1fr; }
+    }
+    .mag-shot{
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(216,181,106,.18);
+      background: rgba(18,14,28,.45);
+      box-shadow: 0 12px 35px rgba(0,0,0,.38);
+      position:relative;
+    }
+    .mag-shot img{ width:100%; height:320px; object-fit:cover; }
+    .mag-shot .cap{
+      padding:10px 12px;
+      color:rgba(244,241,255,.82);
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      border-top:1px solid rgba(216,181,106,.16);
+      background: rgba(7,6,10,.55);
+    }
+
+    .list{
+      margin:0; padding:0 0 0 18px;
+      color:rgba(244,241,255,.78);
+      line-height:1.65;
+      font-size:14px;
+    }
+    .list li{ margin:6px 0; }
+
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 860px){
+      .two{ grid-template-columns: 1fr; }
+    }
+
+    .table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(216,181,106,.18);
+      background: rgba(18,14,28,.40);
+    }
+    .table th, .table td{
+      padding:12px 12px;
+      border-bottom:1px solid rgba(216,181,106,.12);
+      font-size:13px;
+      vertical-align:top;
+    }
+    .table th{
+      text-align:left;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:11px;
+      color:rgba(240,208,138,.95);
+      background: rgba(7,6,10,.55);
+    }
+    .table tr:last-child td{ border-bottom:none; }
+    .money{ color:rgba(240,208,138,.98); font-weight:700; }
+
+    .form{
+      display:grid; gap:10px;
+    }
+    .input, .textarea{
+      width:100%;
+      border-radius:16px;
+      border:1px solid rgba(216,181,106,.20);
+      background: rgba(7,6,10,.45);
+      color:var(--text);
+      padding:12px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    .textarea{ min-height:110px; resize:vertical; }
+    .checkrow{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid rgba(216,181,106,.18);
+      background: rgba(18,14,28,.40);
+      color:rgba(244,241,255,.78);
+      font-size:13px;
+      line-height:1.45;
+    }
+    .checkrow input{ margin-top:2px; transform:scale(1.15); }
+    .disabled{
+      opacity:.45;
+      pointer-events:none;
+      filter:grayscale(.25);
+    }
+
+    footer{
+      padding:26px 0 40px;
+      color:rgba(244,241,255,.58);
+      text-align:center;
+      font-size:12px;
+      border-top:1px solid rgba(216,181,106,.14);
+      margin-top:14px;
+    }
+    .spark{
+      position:absolute; inset:-2px;
+      pointer-events:none;
+      border-radius:var(--radius2);
+      background:
+        radial-gradient(120px 120px at 14% 12%, rgba(255,120,201,.22), transparent 60%),
+        radial-gradient(140px 140px at 86% 14%, rgba(216,181,106,.22), transparent 62%),
+        radial-gradient(160px 160px at 60% 105%, rgba(183,140,255,.18), transparent 60%);
+      opacity:.9;
+      mix-blend-mode:screen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+    ASSET MAP (EDIT THESE PATHS)
+    Upload your images, then set each path below.
+    Example: assets/hero-enter-empire.jpg
+  ========================== -->
+  <script>
+    const ASSETS = {
+      heroEnterEmpire: "assets/hero-enter-empire.jpg",   // (your "ENTER THE EMPIRE" banner image)
+      bannerCollage:   "assets/banner-collage.png",      // (your 4-panel desk/glam banner)
+      logoCrest:       "assets/logo-crest.png",          // (the crest logo with mics + lips)
+      logoProductions: "assets/logo-productions.png",    // (Eshae Productions logo)
+      iconSet:         "assets/icon-set.jpg",            // (favicon & icon logos sheet) optional
+
+      // 6 editorial shots (choose your favorites)
+      ed1: "assets/editorial-01.jpg",
+      ed2: "assets/editorial-02.jpg",
+      ed3: "assets/editorial-03.jpg",
+      ed4: "assets/editorial-04.jpg",
+      ed5: "assets/editorial-05.jpg",
+      ed6: "assets/editorial-06.jpg"
+    };
+  </script>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-mark" title="E’Shae Productions">
+          <img id="brandMark" alt="E’Shae logo mark" />
+        </div>
+        <div class="brand-title">
+          <div class="big">E’Shae Productions</div>
+          <div class="sub">E’Shae Speaks</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#editorial">Editorial</a>
+        <a href="#services">Services</a>
+        <a href="#brandmgmt">Brand Management</a>
+        <a href="#security">Security</a>
+        <a href="#booking">Booking</a>
+        <a href="#inquire">Inquire</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-card">
+          <div class="spark"></div>
+
+          <div class="hero-bg" id="heroBg">
+            <div class="hero-content">
+              <p class="kicker">The Brand. The Voice. The Empire.</p>
+              <h1 class="hero-title">E’Shae <span>Productions</span></h1>
+              <p class="tagline">
+                Luxury hosting, media writing, brand elevation, security presence, and full-scale event experiences —
+                built with intention, polish, and powerhouse energy.
+              </p>
+
+              <div class="cta-row">
+                <a class="btn btn-primary" href="#inquire">Enter the Empire</a>
+                <a class="btn btn-ghost" href="#services">View Services & Rates</a>
+
+                <!-- ICON BUTTONS (replacing any "ugly archive button") -->
+                <div class="mini-icons" aria-label="Quick buttons">
+                  <a class="icon-btn" href="#editorial" title="Editorial">
+                    <img id="icon1" alt="Icon button 1" />
+                  </a>
+                  <a class="icon-btn" href="#booking" title="Booking">
+                    <img id="icon2" alt="Icon button 2" />
+                  </a>
+                  <a class="icon-btn" href="#security" title="Security">
+                    <img id="icon3" alt="Icon button 3" />
+                  </a>
+                </div>
+              </div>
+
+              <div class="quote">
+                “Consistency in anything builds strength in everything.”
+              </div>
+
+            </div>
+          </div>
+
+          <div class="banner">
+            <img id="bannerImg" alt="E’Shae banner collage" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- EDITORIAL -->
+    <section class="section" id="editorial">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-pad">
+            <h2 class="h2">Editorial Showcase</h2>
+            <p class="p">
+              This is the magazine-style visual layer that sets the tone: luxury, nightlife, empire.
+              (You can swap any image at any time — the layout stays clean.)
+            </p>
+
+            <div class="mag-grid">
+              <div class="mag-shot"><img id="ed1" alt="Editorial 1" /><div class="cap">Power Moves</div></div>
+              <div class="mag-shot"><img id="ed2" alt="Editorial 2" /><div class="cap">Ballgown Dreams</div></div>
+              <div class="mag-shot"><img id="ed3" alt="Editorial 3" /><div class="cap">CEO Energy</div></div>
+              <div class="mag-shot"><img id="ed4" alt="Editorial 4" /><div class="cap">Rooftop Royalty</div></div>
+              <div class="mag-shot"><img id="ed5" alt="Editorial 5" /><div class="cap">The Gala</div></div>
+              <div class="mag-shot"><img id="ed6" alt="Editorial 6" /><div class="cap">Skyline Glamour</div></div>
+            </div>
+
+            <div class="divider"></div>
+
+            <span class="pill">Hosting</span>
+            <span class="pill">Media Writing</span>
+            <span class="pill">Voice</span>
+            <span class="pill">Security</span>
+            <span class="pill">Brand Management</span>
+            <span class="pill">Event Planning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="grid">
+
+          <div class="card">
+            <div class="card-pad">
+              <h2 class="h2">Services</h2>
+              <p class="p">
+                E’Shae Productions is not simply a service — it’s a partnership design.
+                You keep your identity. I elevate the presentation, the visibility, and the impact.
+              </p>
+
+              <div class="two">
+                <div>
+                  <h3 class="h3">Hosting</h3>
+                  <ul class="list">
+                    <li><span class="money">L$ 2,500</span> flat rate (standard hosting sets only).</li>
+                    <li>Custom pricing applies to baby showers, bachelor/bachelorette parties, adult venues/strip clubs, private/themed specialty events, and events without tip jar structure.</li>
+                    <li><strong>Turnaround:</strong> Please allow <strong>24–48 hours</strong> after an event for recaps/stories to be posted (when writing/media is included).</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 class="h3">Voice Work</h3>
+                  <ul class="list">
+                    <li><span class="money">$1,500</span> — DJ voice drops / light voice work.</li>
+                    <li><span class="money">$3,500</span> — promotional voice advertising / voiceover.</li>
+                    <li><span class="money">$5,000</span> — live on-mic hosting, commentary, or special appearances.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="two">
+                <div>
+                  <h3 class="h3">Event Planning</h3>
+                  <ul class="list">
+                    <li><span class="money">$7,000+</span> starting rate (custom quotes available).</li>
+                    <li>Includes a touch of everything: writing, media (live reposts/reels), hosting, magazine feature, and selected voice work.</li>
+                    <li>Signature / structured events may include additional staffing and production needs.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h3 class="h3">Scripting</h3>
+                  <ul class="list">
+                    <li>Custom scripting available by quote (menus, interactions, RP features, etc.).</li>
+                    <li>Request a custom code build for your product or experience.</li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <div class="card">
+            <div class="card-pad">
+              <h2 class="h2">Flat Rate Packages</h2>
+              <p class="p">
+                For clients who want a clean “touch of everything” without piecing services together.
+              </p>
+
+              <table class="table" aria-label="Packages">
+                <thead>
+                  <tr>
+                    <th>Package</th>
+                    <th>Includes</th>
+                    <th>Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Writing + Hosting</strong></td>
+                    <td>Media writing + hosting package (touch of both)</td>
+                    <td class="money">$10,000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Empire Package</strong></td>
+                    <td>Voice + promo flyers/spams + writing + media + hosting + structured event planning</td>
+                    <td class="money">$15,000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Empire Package — Full</strong></td>
+                    <td>Everything included at full scale (priority production + expanded deliverables)</td>
+                    <td class="money">$20,000</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="divider"></div>
+
+              <h3 class="h3">Perks (Bigger Packages)</h3>
+              <ul class="list">
+                <li>If a DJ or Host is needed, <strong>I am the connect</strong> — I will provide a DJ + Host for Empire-level packages.</li>
+                <li>Security presence included when required: at least <strong>one security staff member</strong> present for larger packages.</li>
+                <li>Includes a complimentary <strong>limited-edition signature bottle</strong> from <strong>E’Shae Speaks</strong> (where applicable).</li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- BRAND MGMT -->
+    <section class="section" id="brandmgmt">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-pad">
+            <h2 class="h2">Brand Management</h2>
+            <p class="p">
+              Brand management is not “booking management.” You remain your own brand.
+              My role is to push the presence — visibility, presentation, and opportunities.
+            </p>
+
+            <div class="two">
+              <div>
+                <h3 class="h3">Monthly Brand Management (All Categories)</h3>
+                <ul class="list">
+                  <li><span class="money">$3,500 / month</span> (month-to-month basis for brand elevation across categories).</li>
+                  <li>DJ management: <span class="money">$1,800 / week</span> or <span class="money">$3,500 / month</span>.</li>
+                  <li>Month-to-month gives new brands a chance to work with E’Shae Productions.</li>
+                </ul>
+                <p class="fine">
+                  Note: Some established partners may operate on a trade/discount structure when both brands are pushing each other.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="h3">Team Access Perk</h3>
+                <ul class="list">
+                  <li>Team members receive <strong>one monthly favor</strong> (outside of brand pushing): hosting support, a shoutout video, promo assistance, etc.</li>
+                  <li>DJs under management can have E’Shae Speaks as their <strong>main host</strong> when available, at a discounted structure.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <h3 class="h3">Current DJ Talent Roster</h3>
+            <ul class="list">
+              <li>DJ Bad News</li>
+              <li>DJ Eva</li>
+              <li>DJ Sir Kilmaxxx</li>
+              <li>DJ KT Swish</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <h3 class="h3">Creative / Media Team</h3>
+            <ul class="list">
+              <li><strong>Poca</strong> — Interior Design</li>
+              <li><strong>Montavous</strong> — Monta Productions (Media / Video)</li>
+              <li><strong>DJ Black Magic</strong> — Media Team</li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SECURITY -->
+    <section class="section" id="security">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-pad">
+            <h2 class="h2">Security Division</h2>
+            <p class="p">
+              Security presence is part of the brand experience. Security members represent the E’Shae Speaks brand while on duty.
+              Professionalism, respect, and positivity are mandatory.
+            </p>
+
+            <div class="two">
+              <div>
+                <h3 class="h3">Client Security Outsourcing Agreement</h3>
+                <ul class="list">
+                  <li><strong>Services:</strong> presence, crowd flow control, guest management, designated positioning, and maintaining a safe professional environment.</li>
+                  <li><strong>Payment:</strong> payment is due <strong>at the start of the shift(s)</strong> (no payment will be received after service is complete).</li>
+                  <li><strong>Representation:</strong> security represents E’Shae Speaks while on duty.</li>
+                  <li><strong>Exclusivity:</strong> all bookings must be made directly through E’Shae Speaks (no side dealings).</li>
+                  <li><strong>Termination & Rights:</strong> services may be discontinued at any time for disrespect, misconduct, or negative impact.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 class="h3">Internal Team Pay Structure</h3>
+                <ul class="list">
+                  <li><strong>45 minutes:</strong> $100 (first 45 minutes).</li>
+                  <li><strong>2+ hours (special/structured):</strong> can increase up to $1,000 depending on scope.</li>
+                  <li><strong>Volunteer Rotation:</strong> if a member works a paid event one week, the next event week is volunteer — <strong>mandatory</strong> rotation to keep the program sustainable.</li>
+                  <li><strong>Tips:</strong> event tips are split among active guards that night to keep it fair.</li>
+                  <li><strong>Team Standard:</strong> all team members must wear their <strong>custom tag</strong> at all E’Shae events.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="fine">
+              First point of contact for concerns may be listed by the team lead (if applicable) inside your private internal docs.
+              Public site remains client-facing and professional.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- BOOKING -->
+    <section class="section" id="booking">
+      <div class="wrap">
+        <div class="card">
+          <div class="card-pad">
+            <h2 class="h2">Booking Terms & Policies</h2>
+
+            <div class="two">
+              <div>
+                <h3 class="h3">Special Event Notice</h3>
+                <p class="p">
+                  The <strong>L$ 2,500</strong> flat rate applies to standard hosting sets only.
+                  Custom pricing applies to baby showers, bachelor/bachelorette parties, adult venues/strip clubs,
+                  private/themed specialty events, and events without tip jar structure.
+                </p>
+
+                <h3 class="h3">Co-Hosting Policy</h3>
+                <p class="p">
+                  E’Shae Productions is a <strong>solo-host</strong> brand. If an additional host is requested:
+                  <strong>L$ 500 Co-Host Collaboration Fee</strong>. Host must be disclosed in advance.
+                  Approval required prior to confirmation.
+                </p>
+              </div>
+
+              <div>
+                <h3 class="h3">Booking Terms</h3>
+                <ul class="list">
+                  <li><strong>50% non-refundable deposit</strong> secures your date.</li>
+                  <li>Remaining balance due <strong>prior to event start</strong>.</li>
+                  <li>Please allow <strong>24–48 hours</strong> for event write-ups/media deliverables after the event (when included).</li>
+                </ul>
+
+                <h3 class="h3">Cancellation & Rescheduling</h3>
+                <ul class="list">
+                  <li>Deposit is non-refundable.</li>
+                  <li>Cancellations 72+ hours before the event may be rescheduled once within 30 days (subject to availability).</li>
+                  <li>If a new date is not secured within 30 days, the deposit is forfeited.</li>
+                  <li>Cancellations within 72 hours forfeit the deposit.</li>
+                  <li>Emergencies may be reviewed at discretion.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="fine">
+              E’Shae Speaks reserves the right to refuse services to anyone or discontinue service with anyone,
+              including members on the E’Shae team or production team, respectfully and at discretion.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- INQUIRE -->
+    <section class="section" id="inquire">
+      <div class="wrap">
+        <div class="grid">
+          <div class="card">
+            <div class="card-pad">
+              <h2 class="h2">Inquiry Form</h2>
+              <p class="p">
+                To inquire for services or team positions, please confirm you have read and agree to the terms below.
+              </p>
+
+              <div class="checkrow">
+                <input type="checkbox" id="agreeTerms" />
+                <label for="agreeTerms">
+                  I have read and agree to the Booking Terms, Co-Hosting Policy, Cancellation & Rescheduling policy,
+                  and understand deposits are non-refundable.
+                </label>
+              </div>
+
+              <div class="checkrow">
+                <input type="checkbox" id="agreeRespect" />
+                <label for="agreeRespect">
+                  I understand E’Shae Productions is a luxury brand. Professional communication and respect are required.
+                </label>
+              </div>
+
+              <form class="form" id="inquiryForm">
+                <input class="input" type="text" name="name" placeholder="Your Name / SL Name" required />
+                <input class="input" type="text" name="service" placeholder="What are you requesting? (Hosting / Media / Voice / Security / Brand Mgmt / Event Planning)" required />
+                <input class="input" type="text" name="date" placeholder="Event Date / Deadline (and Time Zone)" />
+                <textarea class="textarea" name="details" placeholder="Details (venue, theme, length of event, deliverables requested, budget range, etc.)"></textarea>
+
+                <button type="submit" class="btn btn-primary disabled" id="submitBtn">Submit Inquiry</button>
+
+                <p class="fine">
+                  This demo form can be wired to your platform (email, Google Form, booking system). If your builder supports “mailto:”
+                  we can set it up — or you can replace this with a button linking to your booking form.
+                </p>
+              </form>
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-pad">
+              <h2 class="h2">Quick Notes</h2>
+              <ul class="list">
+                <li>If your site has a Marketplace link, add it here when your bottles/products drop.</li>
+                <li>DJ/Team names can always be updated later — you’ll just edit the text on this page.</li>
+                <li>Keep everything clean by only changing text + image paths, not structure.</li>
+              </ul>
+
+              <div class="divider"></div>
+
+              <h3 class="h3">Contact / Links</h3>
+              <p class="p">
+                Add your YouTube, Spotify, booking link, and socials here once ready.
+              </p>
+
+              <div class="cta-row">
+                <a class="btn btn-ghost" href="#services">Services</a>
+                <a class="btn btn-ghost" href="#brandmgmt">Brand Management</a>
+                <a class="btn btn-ghost" href="#security">Security</a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> E’Shae Productions / E’Shae Speaks — Empire. Elegance. Excellence.
+      <div style="margin-top:10px;">
+        <span class="fine">For Second Life services, L$ pricing is listed where applicable. USD pricing applies to real-world services as stated.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Apply assets
+    document.getElementById("heroBg").style.backgroundImage = `url('${ASSETS.heroEnterEmpire}')`;
+    document.getElementById("bannerImg").src = ASSETS.bannerCollage;
+
+    // Brand mark + icon buttons (use your crest or productions logo)
+    document.getElementById("brandMark").src = ASSETS.logoCrest;
+    document.getElementById("icon1").src = ASSETS.logoProductions;
+    document.getElementById("icon2").src = ASSETS.logoCrest;
+    document.getElementById("icon3").src = ASSETS.logoProductions;
+
+    // Editorial images
+    document.getElementById("ed1").src = ASSETS.ed1;
+    document.getElementById("ed2").src = ASSETS.ed2;
+    document.getElementById("ed3").src = ASSETS.ed3;
+    document.getElementById("ed4").src = ASSETS.ed4;
+    document.getElementById("ed5").src = ASSETS.ed5;
+    document.getElementById("ed6").src = ASSETS.ed6;
+
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Terms gate
+    const agreeTerms = document.getElementById("agreeTerms");
+    const agreeRespect = document.getElementById("agreeRespect");
+    const submitBtn = document.getElementById("submitBtn");
+
+    function syncButton(){
+      const ok = agreeTerms.checked && agreeRespect.checked;
+      submitBtn.classList.toggle("disabled", !ok);
+    }
+    agreeTerms.addEventListener("change", syncButton);
+    agreeRespect.addEventListener("change", syncButton);
+
+    // Demo form submit (replace with your booking integration)
+    document.getElementById("inquiryForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+      if (submitBtn.classList.contains("disabled")) return;
+      alert("Inquiry captured (demo). Connect this form to your email/booking system inside your site builder.");
+      e.target.reset();
+      syncButton();
+    });
+
+    syncButton();
+  </script>
+
+</body>
+</html>
+    
