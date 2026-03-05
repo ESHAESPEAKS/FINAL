@@ -28,6 +28,99 @@
       --serif: ui-serif, "Georgia", "Times New Roman", Times, serif;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
+    /* =========================================================
+   RESPONSIVE FIX PACK (DESKTOP + MOBILE)
+   Paste at the VERY BOTTOM of your CSS
+========================================================= */
+
+/* Always keep media inside the screen */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Nav: prevents squishing on small screens */
+.nav {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  gap: 10px;
+}
+.nav a {
+  white-space: nowrap;
+}
+
+/* Make sure wrappers never overflow */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+/* --- TABLET + DOWN --- */
+@media (max-width: 900px) {
+  /* Turn any 2-column hero/media layout into a clean stack */
+  .hero-row,
+  .hero-grid,
+  .media-row,
+  .media-grid {
+    display: block !important;
+  }
+
+  /* If media box was floating/absolute, stop that on smaller screens */
+  .media-box,
+  .media-links,
+  .video-box {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 14px;
+  }
+
+  /* Make the hero card full width */
+  .hero-card,
+  .card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Let button rows wrap naturally */
+  .cta-row,
+  .btn-row,
+  .media-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* --- PHONE --- */
+@media (max-width: 600px) {
+  /* Reduce the “too wide” feeling at the top */
+  .hero {
+    padding: 18px 12px !important;
+  }
+
+  /* Keep cards looking clean */
+  .hero-card,
+  .card {
+    border-radius: 18px;
+  }
+
+  /* Editorial / gallery grids become 1 column */
+  .mag-grid,
+  .editorial-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Featured video height for phone */
+  iframe {
+    height: 220px;
+  }
+}
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
