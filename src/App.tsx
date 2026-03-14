@@ -90,7 +90,7 @@
 
     <!-- BANNER COLLAGE -->
     <div style="padding:14px;background:rgba(10,8,16,.42);border-top:1px solid rgba(216,181,106,.18);">
-      <img src="PASTE-IMAGE-URL-HERE" alt="Banner" style="width:100%;border-radius:18px;border:1px solid rgba(216,181,106,.22);box-shadow:0 16px 40px rgba(0,0,0,.40);max-height:380px;object-fit:cover;" />
+      <img src="eshae-banner.jpg" alt="Banner" style="width:100%;border-radius:18px;border:1px solid rgba(216,181,106,.22);box-shadow:0 16px 40px rgba(0,0,0,.40);max-height:380px;object-fit:cover;" />
     </div>
   </div>
 
